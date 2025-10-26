@@ -28,15 +28,27 @@
       html {
         scroll-behavior: smooth;
       }
+      html,
       body {
+        height: 100%;
+        min-height: 100%;
         background: linear-gradient(
-          to bottom,
-          #f9c94d 0%,
-          #f9c94d 40%,
-          #ffa366 70%,
-          #d4a5ff 100%
+          180deg,
+          #ffdd55 0%,
+          #ffb347 40%,
+          #ff7b54 70%,
+          #e65c00 100%
         );
+        background-attachment: fixed; /* tetap saat zoom atau scroll */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      /* Tambahan agar tiap section tetap nyatu warnanya */
+      section {
+        background: transparent; /* biar pakai background body */
         min-height: 100vh;
+        background-attachment: fixed;
       }
 
       .navbar-logo {
