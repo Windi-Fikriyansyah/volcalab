@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VolcaLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=More+Sugar&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      html,
+      body,
+      * {
+        font-family: "More Sugar", cursive !important;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: linear-gradient(
+          to bottom,
+          #f9c94d 0%,
+          #f9c94d 40%,
+          #ffa366 70%,
+          #d4a5ff 100%
+        );
+        min-height: 100vh;
+      }
+
+      .navbar-logo {
+        width: 70px; /* sebelumnya 48px (w-12) */
+        height: 70px; /* sebelumnya 48px (h-12) */
+      }
+      @media (min-width: 768px) {
+        .navbar-logo {
+          width: 90px; /* sebelumnya 64px (w-16) */
+          height: 90px; /* sebelumnya 64px (h-16) */
+        }
+      }
+      nav {
+        height: auto;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      /* Desktop font sizes */
+      @media (min-width: 768px) {
+        body {
+          font-size: 1.25rem;
+        }
+
+        h1 {
+          font-size: 3.5rem !important;
+        }
+
+        h2 {
+          font-size: 2.75rem !important;
+        }
+
+        h3 {
+          font-size: 2rem !important;
+        }
+
+        p,
+        li,
+        a,
+        button {
+          font-size: 1.25rem !important;
+        }
+      }
+
+      /* Mobile font sizes */
+      @media (max-width: 767px) {
+        body {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.75rem !important;
+        }
+
+        h3 {
+          font-size: 1.5rem !important;
+        }
+
+        p,
+        li,
+        a,
+        button {
+          font-size: 1rem !important;
+        }
+      }
+
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          #f9c94d 0%,
+          #ffd166 25%,
+          #ff9f66 50%,
+          #d4a5ff 100%
+        );
+        color: #2d2d2d;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 30% 40%,
+          rgba(255, 255, 255, 0.2),
+          transparent 70%
+        );
+      }
+      .bubble {
+        background: linear-gradient(135deg, #a8d5ff 0%, #d4e7ff 100%);
+        border-radius: 30px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .bubble::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 30px;
+        width: 20px;
+        height: 20px;
+        background: #d4e7ff;
+        border-radius: 50%;
+      }
+
+      .star-number {
+        background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+        position: relative;
+      }
+
+      .star-icon {
+        font-size: 24px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      .step-number {
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+        background: white;
+        color: #dc2626;
+        font-weight: bold;
+        font-size: 14px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #ffd700;
+      }
+
+      .product-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .testimonial-box {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-section {
+        background: linear-gradient(to bottom, #b19cd9 0%, #8b7db8 100%);
+      }
+
+      .footer-section {
+        background: linear-gradient(
+          to bottom,
+          #8b7db8 0%,
+          #ffc4d0 50%,
+          #ffe4b5 100%
+        );
+      }
+
+      .section-divider {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .divider-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255, 255, 255, 0.3) 100%
+        );
+      }
+
+      .divider-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          transparent 0%,
+          rgba(255, 255, 255, 0.3) 100%
+        );
+      }
+
+      .wave-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .wave-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 50px;
+      }
+
+      .wave-divider .shape-fill {
+        fill: rgba(255, 255, 255, 0.2);
+      }
+
+      .section-border {
+        border-top: 3px dashed rgba(255, 255, 255, 0.5);
+        margin: 40px auto;
+        width: 80%;
+      }
+
+      .section-container {
+        position: relative;
+      }
+
+      .section-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 10%;
+        right: 10%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.7),
+          transparent
+        );
+      }
+
+      .section-container::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        right: 10%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.7),
+          transparent
+        );
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes bounce-slow {
+        0%,
+        100% {
+          transform: translateY(0) rotate(6deg);
+        }
+        50% {
+          transform: translateY(-8px) rotate(3deg);
+        }
+      }
+
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 5s ease-in-out infinite;
+      }
+      .howto-star {
+        fill: url(#gold-gradient);
+        stroke: #e6b800;
+        stroke-width: 2;
+        filter: drop-shadow(0 3px 6px rgba(255, 200, 0, 0.5));
+      }
+
+      .howto-star-wrapper {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+      }
+
+      /* Mobile responsive star size */
+      @media (max-width: 767px) {
+        .howto-star-wrapper {
+          width: 40px;
+          height: 40px;
+        }
+        .howto-star-number {
+          font-size: 1rem !important;
+        }
+      }
+
+      .howto-star-number {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b2b1d;
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+      }
+
+      section.hero-section img {
+        display: block;
+        margin-bottom: -2px;
+      }
+
+      /* Mobile navbar adjustments */
+      @media (max-width: 768px) {
+        nav {
+          flex-wrap: wrap;
+          padding: 1rem !important;
+        }
+
+        nav ul {
+          display: none;
+        }
+
+        nav ul.mobile-menu-open {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 1rem;
+          padding: 1rem 0;
+          margin-top: 1rem;
+        }
+
+        nav button {
+          font-size: 0.875rem !important;
+          padding: 0.5rem 1rem !important;
+        }
+
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          cursor: pointer;
+          padding: 0.5rem;
+        }
+
+        .hamburger span {
+          width: 25px;
+          height: 3px;
+          background-color: #2d2d2d;
+          transition: all 0.3s ease;
+          border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+
+      @media (min-width: 769px) {
+        .hamburger {
+          display: none;
+        }
+      }
+
+      /* Show smaller decorations on mobile */
+      @supports (display: flex) {
+        .mobile-decoration {
+          display: block !important;
+          width: 2rem !important;
+          height: 2rem !important;
+        }
+      }
+      @media (max-width: 768px) {
+        #wahkokbisa img {
+          max-width: 80px;
+          height: auto;
+        }
+        #wahkokbisa h2 {
+          font-size: 1.75rem;
+          margin-top: 3rem;
+        }
+        #wahkokbisa div p {
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        #wahkokbisa {
+          padding-top: 5rem;
+          padding-bottom: 5rem;
+        }
+        #wahkokbisa img {
+          opacity: 0.9;
+        }
+        #wahkokbisa .absolute {
+          position: absolute !important;
+        }
+      }
+      @media (max-width: 767px) {
+        #funfact {
+          padding-top: 4rem !important; /* Naik sedikit */
+          padding-bottom: 1rem !important;
+        }
+
+        #funfact .funfact-img {
+          width: 120% !important;
+          max-width: none !important;
+          transform: scale(1.2) !important;
+          margin-bottom: 0 !important;
+          transform-origin: center top !important; /* Zoom dari atas */
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <!-- Navbar -->
+    <nav
+      class="flex justify-between items-center px-4 md:px-8 py-2 md:py-4 shadow-md"
+      style="background-color: #f9c94d"
+    >
+      <div class="flex items-center gap-2">
+        <a href="/" class="block">
+          <img
+            src="{% static 'main/img/logo.png' %}"
+            alt="Logo"
+            class="navbar-logo object-contain cursor-pointer transition-transform hover:scale-105"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-8 text-sm font-medium text-gray-800">
+        <li>
+          <a href="{% url 'funfact' %}" class="hover:text-red-600 transition"
+            >FunFact</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'wahkokbisa' %}" class="hover:text-red-600 transition"
+            >Wah Kok Bisa Ya?</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'howtouse' %}" class="hover:text-red-600 transition"
+            >How To Use</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'product' %}" class="hover:text-red-600 transition"
+            >Our Product</a
+          >
+        </li>
+      </ul>
+
+      <!-- Mobile Hamburger -->
+      <div class="flex items-center gap-3">
+        <a
+          href="https://www.instagram.com/volcalab?igsh=ZnQ2M2w1cHRoN2M3"
+          target="_blank"
+          class="bg-red-600 text-white px-4 md:px-6 py-2 rounded-md shadow-lg hover:bg-red-700 transition text-xs md:text-sm font-medium"
+        >
+          Contact Us
+        </a>
+
+        <div class="hamburger md:hidden" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <ul
+        id="mobileMenu"
+        class="hidden md:hidden gap-8 text-sm font-medium text-gray-800"
+      >
+        <li>
+          <a
+            href="{% url 'funfact' %}"
+            class="hover:text-red-600 transition"
+            onclick="toggleMenu()"
+            >FunFact</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'wahkokbisa' %}"
+            class="hover:text-red-600 transition"
+            onclick="toggleMenu()"
+            >Wah Kok Bisa Ya?</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'howtouse' %}"
+            class="hover:text-red-600 transition"
+            onclick="toggleMenu()"
+            >How To Use</a
+          >
+        </li>
+        <li>
+          <a
+            href="{% url 'product' %}"
+            class="hover:text-red-600 transition"
+            onclick="toggleMenu()"
+            >Our Product</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger");
+
+        mobileMenu.classList.toggle("mobile-menu-open");
+        hamburger.classList.toggle("active");
+      }
+    </script>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>

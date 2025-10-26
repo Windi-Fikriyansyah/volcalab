@@ -1,0 +1,177 @@
+{% extends 'main/base.html' %} {% load static %} {% block title %}How To Use -
+VolcaLab{% endblock %} {% block content %}
+
+<style>
+  #howtouse {
+    font-family: "More Sugar", cursive !important;
+    background: linear-gradient(
+      180deg,
+      #ffe68a 0%,
+      #ffd65b 35%,
+      #ffbf4a 70%,
+      #ffb347 100%
+    );
+  }
+
+  /* Warna khusus mobile, hilangkan ungu */
+  @media (max-width: 768px) {
+    #howtouse {
+      background: linear-gradient(
+        180deg,
+        #fff3b0 0%,
+        #ffe680 40%,
+        #ffcc66 80%,
+        #ffb347 100%
+      ) !important;
+    }
+  }
+
+  /* Naikkan posisi konten sedikit dari tengah */
+  #howtouse .content-wrapper {
+    transform: translateY(-5vh);
+  }
+
+  @media (max-width: 768px) {
+    #howtouse .content-wrapper {
+      transform: translateY(-8vh); /* lebih naik sedikit di mobile */
+    }
+  }
+</style>
+
+<section
+  id="howtouse"
+  class="relative py-10 md:py-16 px-4 md:px-10 text-center overflow-hidden min-h-screen flex flex-col items-center justify-center"
+>
+  <div class="content-wrapper w-full max-w-3xl mx-auto">
+    <h2
+      class="text-3xl md:text-5xl font-bold text-[#7a2b20] mb-6 md:mb-10 drop-shadow-md"
+    >
+      How to Use
+    </h2>
+
+    <div class="text-left space-y-5 md:space-y-8">
+      <!-- Step 1 -->
+      <div class="flex items-start gap-3 md:gap-6">
+        <div class="relative flex-shrink-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            class="w-10 h-10 md:w-14 md:h-14"
+          >
+            <defs>
+              <linearGradient id="gold-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffea00" />
+                <stop offset="50%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffb300" />
+              </linearGradient>
+            </defs>
+            <polygon
+              fill="url(#gold-gradient)"
+              points="32 4 39 24 60 24 42 38 48 58 32 46 16 58 22 38 4 24 25 24 32 4"
+            />
+          </svg>
+          <span
+            class="absolute inset-0 flex items-center justify-center text-[#7a2b20] text-lg font-bold"
+            >1</span
+          >
+        </div>
+        <p class="text-[#4a3728] text-base md:text-lg leading-relaxed">
+          Siapkan miniatur gunung berapi, bisa diberi wadah agar mudah
+          dibersihkan.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex items-start gap-3 md:gap-6">
+        <div class="relative flex-shrink-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            class="w-10 h-10 md:w-14 md:h-14"
+          >
+            <defs>
+              <linearGradient id="gold-gradient2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffea00" />
+                <stop offset="50%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffb300" />
+              </linearGradient>
+            </defs>
+            <polygon
+              fill="url(#gold-gradient2)"
+              points="32 4 39 24 60 24 42 38 48 58 32 46 16 58 22 38 4 24 25 24 32 4"
+            />
+          </svg>
+          <span
+            class="absolute inset-0 flex items-center justify-center text-[#7a2b20] text-lg font-bold"
+            >2</span
+          >
+        </div>
+        <p class="text-[#4a3728] text-base md:text-lg leading-relaxed">
+          Masukkan baking soda ke dalam gunung.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex items-start gap-3 md:gap-6">
+        <div class="relative flex-shrink-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            class="w-10 h-10 md:w-14 md:h-14"
+          >
+            <defs>
+              <linearGradient id="gold-gradient3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffea00" />
+                <stop offset="50%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffb300" />
+              </linearGradient>
+            </defs>
+            <polygon
+              fill="url(#gold-gradient3)"
+              points="32 4 39 24 60 24 42 38 48 58 32 46 16 58 22 38 4 24 25 24 32 4"
+            />
+          </svg>
+          <span
+            class="absolute inset-0 flex items-center justify-center text-[#7a2b20] text-lg font-bold"
+            >3</span
+          >
+        </div>
+        <p class="text-[#4a3728] text-base md:text-lg leading-relaxed">
+          Kocok lava activator sebelum dituangkan ke dalam gunung.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex items-start gap-3 md:gap-6">
+        <div class="relative flex-shrink-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+            class="w-10 h-10 md:w-14 md:h-14"
+          >
+            <defs>
+              <linearGradient id="gold-gradient4" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffea00" />
+                <stop offset="50%" stop-color="#ffd700" />
+                <stop offset="100%" stop-color="#ffb300" />
+              </linearGradient>
+            </defs>
+            <polygon
+              fill="url(#gold-gradient4)"
+              points="32 4 39 24 60 24 42 38 48 58 32 46 16 58 22 38 4 24 25 24 32 4"
+            />
+          </svg>
+          <span
+            class="absolute inset-0 flex items-center justify-center text-[#7a2b20] text-lg font-bold"
+            >4</span
+          >
+        </div>
+        <p class="text-[#4a3728] text-base md:text-lg leading-relaxed">
+          Tuangkan lava activator ke dalam gunung.<br />
+          Tunggu sesaat, dan <strong>boom!</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

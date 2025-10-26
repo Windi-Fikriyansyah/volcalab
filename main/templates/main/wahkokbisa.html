@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %} {% load static %} {% block title %}Wah! Kok Bisa
+Ya? - VolcaLab{% endblock %} {% block content %}
+<section
+  id="wahkokbisa"
+  class="relative flex flex-col justify-center items-center text-center px-4 md:px-8 py-10 md:py-16 overflow-hidden min-h-screen"
+  style="
+    background: linear-gradient(
+      180deg,
+      #ffe68a 0%,
+      #ffd65b 40%,
+      #ffbf4a 70%,
+      #ffb347 100%
+    );
+    font-family: 'More Sugar', cursive;
+  "
+>
+  <!-- Ornamen atas kiri -->
+  <img
+    src="{% static 'main/img/molekul.png' %}"
+    alt="Molecule"
+    class="absolute top-4 left-4 w-12 md:w-20 animate-float z-20 opacity-100"
+  />
+
+  <!-- Ornamen atas kanan -->
+  <img
+    src="{% static 'main/img/molekul1.png' %}"
+    alt="Tube"
+    class="absolute top-8 right-4 w-12 md:w-20 animate-bounce-slow z-20 opacity-100"
+  />
+
+  <!-- Judul -->
+  <h2
+    class="text-3xl md:text-5xl font-bold text-[#a32c2c] drop-shadow-md mb-6 mt-20 md:mt-0"
+  >
+    Wah! Kok Bisa Ya?
+  </h2>
+
+  <!-- Isi teks -->
+  <div
+    class="max-w-3xl mx-auto text-[#b73424] text-base md:text-xl font-medium leading-relaxed px-2 md:px-8"
+  >
+    <p class="mb-6">
+      Jadi, ketika <strong>baking soda</strong> dan
+      <strong>lava activator (cuka dan sabun)</strong> tercampur, terjadi reaksi
+      kimia asam-basa yang menghasilkan gas <strong>CO₂</strong> atau Karbon
+      Dioksida, air, dan garam yang disebut <strong>Natrium Asetat</strong>.
+      Pelepasan gas CO₂ yang cepat menciptakan tekanan, menyebabkan cairan
+      bergelembung dan meletus — mirip seperti reaksi gunung berapi!
+    </p>
+
+    <p>
+      Nah, reaksi kimia ini tetap aman ya, selagi tidak mengenai mata atau
+      tertelan! Setelah bermain jangan lupa juga untuk
+      <strong>mencuci tangan!</strong>
+    </p>
+  </div>
+
+  <!-- Ornamen bawah kiri -->
+  <img
+    src="{% static 'main/img/3.png' %}"
+    alt="Beaker Left"
+    class="absolute bottom-4 left-6 w-16 md:w-24 animate-float opacity-100"
+  />
+
+  <!-- Ornamen bawah kanan -->
+  <img
+    src="{% static 'main/img/4.png' %}"
+    alt="Beaker Right"
+    class="absolute bottom-4 right-6 w-16 md:w-24 animate-float opacity-100"
+  />
+</section>
+{% endblock %}

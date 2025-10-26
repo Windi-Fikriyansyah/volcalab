@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %} {% load static %} {% block title %}Home -
+VolcaLab{% endblock %} {% block content %}
+
+<section
+  class="relative overflow-hidden flex flex-col md:flex-row items-center justify-between pt-4 md:pt-12 pb-0 px-4 md:px-0 min-h-screen md:min-h-0"
+  style="
+    background: linear-gradient(
+      180deg,
+      #ffdd55 0%,
+      #ffb347 40%,
+      #ff7b54 70%,
+      #e65c00 100%
+    );
+  "
+>
+  <!-- Volcano Image -->
+  <div
+    class="flex-1 flex justify-center md:justify-start items-center relative overflow-hidden"
+  >
+    <img
+      src="{% static 'main/img/banner.png' %}"
+      alt="Volcano"
+      class="w-full max-w-[400px] md:max-w-[650px] lg:max-w-[900px] drop-shadow-2xl relative md:-translate-x-24 lg:-translate-x-32 -mt-4 md:-mt-12"
+    />
+  </div>
+
+  <!-- Text Content -->
+  <div
+    class="flex-1 text-center md:text-left space-y-3 md:pl-10 pb-10 md:pb-10 px-4"
+  >
+    <h1
+      class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#712a1e] drop-shadow-lg tracking-wide"
+    >
+      Volca Lab
+    </h1>
+    <p class="text-base md:text-lg text-[#712a1e]/90 italic font-medium">
+      Your Science Buddy!
+    </p>
+    <div class="mt-4">
+      <h3
+        class="text-base md:text-xl font-bold text-[#712a1e] mb-1 underline decoration-wavy decoration-red-400"
+      >
+        Why we should buy?
+      </h3>
+      <p
+        class="text-sm md:text-lg text-[#712a1e]/90 max-w-lg leading-relaxed mx-auto md:mx-0"
+      >
+        Volca Lab provides all you need for simulating a mini volcano eruption,
+        making it a fun learning experience with kids!
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
